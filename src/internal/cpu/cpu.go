@@ -109,26 +109,32 @@ type arm64 struct {
 var S390X s390x
 
 type s390x struct {
-	_         CacheLinePad
-	HasZARCH  bool // z architecture mode is active [mandatory]
-	HasSTFLE  bool // store facility list extended [mandatory]
-	HasLDISP  bool // long (20-bit) displacements [mandatory]
-	HasEIMM   bool // 32-bit immediates [mandatory]
-	HasDFP    bool // decimal floating point
-	HasETF3EH bool // ETF-3 enhanced
-	HasMSA    bool // message security assist (CPACF)
-	HasAES    bool // KM-AES{128,192,256} functions
-	HasAESCBC bool // KMC-AES{128,192,256} functions
-	HasAESCTR bool // KMCTR-AES{128,192,256} functions
-	HasAESGCM bool // KMA-GCM-AES{128,192,256} functions
-	HasGHASH  bool // KIMD-GHASH function
-	HasSHA1   bool // K{I,L}MD-SHA-1 functions
-	HasSHA256 bool // K{I,L}MD-SHA-256 functions
-	HasSHA512 bool // K{I,L}MD-SHA-512 functions
-	HasSHA3   bool // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
-	HasVX     bool // vector facility. Note: the runtime sets this when it processes auxv records.
-	HasVXE    bool // vector-enhancements facility 1
-	_         CacheLinePad
+	_               CacheLinePad
+	HasZARCH        bool // z architecture mode is active [mandatory]
+	HasSTFLE        bool // store facility list extended [mandatory]
+	HasLDISP        bool // long (20-bit) displacements [mandatory]
+	HasEIMM         bool // 32-bit immediates [mandatory]
+	HasDFP          bool // decimal floating point
+	HasETF3EH       bool // ETF-3 enhanced
+	HasMSA          bool // message security assist (CPACF)
+	HasAES          bool // KM-AES{128,192,256} functions
+	HasAESCBC       bool // KMC-AES{128,192,256} functions
+	HasAESCTR       bool // KMCTR-AES{128,192,256} functions
+	HasAESGCM       bool // KMA-GCM-AES{128,192,256} functions
+	HasGHASH        bool // KIMD-GHASH function
+	HasSHA1         bool // K{I,L}MD-SHA-1 functions
+	HasSHA256       bool // K{I,L}MD-SHA-256 functions
+	HasSHA512       bool // K{I,L}MD-SHA-512 functions
+	HasSHA3         bool // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
+	HasVX           bool // vector facility. Note: the runtime sets this when it processes auxv records.
+	HasVXE          bool // vector-enhancements facility 1
+	HasKDSA         bool // elliptic curve functions
+	HasECDSAP256    bool // NIST P256
+	HasECDSAP384    bool // NIST P384
+	HasECDSAP521    bool // NIST P521
+	HasEDDSAEd25519 bool // Curve25519
+	HasEDDSAEd448   bool // Curve448
+	_               CacheLinePad
 }
 
 // Initialize examines the processor and sets the relevant variables above.
